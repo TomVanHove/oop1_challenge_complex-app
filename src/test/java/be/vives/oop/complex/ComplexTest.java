@@ -22,7 +22,7 @@ public class ComplexTest {
   @Test
   public void testRealSetter() {
     double value = 15.33;
-    
+
     Complex number = new Complex();
     number.setReal(value);
 
@@ -32,7 +32,7 @@ public class ComplexTest {
   @Test
   public void testImaginarySetter() {
     double value = 15.33;
-    
+
     Complex number = new Complex();
     number.setImaginary(value);
 
@@ -77,8 +77,8 @@ public class ComplexTest {
 
     Complex result = first.add(second);
 
-    assertEquals(first.getReal()+second.getReal(), result.getReal(), delta);
-    assertEquals(first.getImaginary()+second.getImaginary(), result.getImaginary(), delta);
+    assertEquals(first.getReal() + second.getReal(), result.getReal(), delta);
+    assertEquals(first.getImaginary() + second.getImaginary(), result.getImaginary(), delta);
   }
 
   @Test
@@ -120,6 +120,17 @@ public class ComplexTest {
   }
 
   @Test
+  public void testSubtractAnotherComplex() {
+    Complex first = new Complex(0.32, 55.13);
+    Complex second = new Complex(-134.33, 12.01);
+
+    Complex result = first.subtract(second);
+
+    assertEquals(first.getReal() - second.getReal(), result.getReal(), delta);
+    assertEquals(first.getImaginary() - second.getImaginary(), result.getImaginary(), delta);
+  }
+
+  @Test
   public void testMultiplyAnotherComplex() {
     Complex first = new Complex(3, 2);
     Complex second = new Complex(1, 7);
@@ -129,15 +140,26 @@ public class ComplexTest {
     assertEquals(-11, result.getReal(), delta);
     assertEquals(23, result.getImaginary(), delta);
   }
-  
+
   @Test
-  public void testDivideByFactor() {
-    Complex first = new Complex(25, -3);
-    double factor = 2;
+  public void testDivideAnotherComplex() {
+    Complex first = new Complex(3, 2);
+    Complex second = new Complex(1, 7);
 
-    Complex result = first.divide(factor);
+    Complex result = first.divide(second);
 
-    assertEquals(12.5, result.getReal(), delta);
-    assertEquals(-1.5, result.getImaginary(), delta);
+    assertEquals(-11, result.getReal(), delta);
+    assertEquals(23, result.getImaginary(), delta);
   }
+
+  // @Test
+  // public void testDivideByFactor() {
+  // Complex first = new Complex(25, -3);
+  // double factor = 2;
+  
+  // Complex result = first.divide(factor);
+
+  // assertEquals(12.5, result.getReal(), delta);
+  // assertEquals(-1.5, result.getImaginary(), delta);
+  // }
 }
